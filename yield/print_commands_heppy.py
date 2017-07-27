@@ -26,7 +26,7 @@ heppy_topdir = os.path.join(os.path.sep, 'hdfs', 'SUSY', 'RA1')
 
 
 ##__________________________________________________________________||
-tbl_topdir = os.path.join('.', 'tbl_20170713_01')
+tbl_topdir = os.path.join('.', 'tbl_20170727_01')
 
 ##__________________________________________________________________||
 import argparse
@@ -73,7 +73,7 @@ def build_jobs_twirl_heppy_T2bb():
     tbl_dir = os.path.join(tbl_topdir, name)
     heppy_dir = os.path.join(heppy_topdir, '74X', 'MC', '20170306_S01', '20170306_AtLogic_MC_SUSY_SMS_25ns')
 
-    heppy_components = ['SMS-T2bb_mSbottom-625to1050_0to550_25ns']
+    heppy_components = ['SMS-T2bb_mSbottom-625to1050_0to550_25ns', 'SMS-T2bb_mSbottom-300to400_0to375_25ns']
     twirl_option = "{common} --max-events-per-process 500000 --mc".format(common = twirl_option_common)
 
     jobs = build_jobs_twirl_heppy_template(

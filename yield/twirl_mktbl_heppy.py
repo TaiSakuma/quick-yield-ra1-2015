@@ -111,6 +111,8 @@ def configure_1st_event_selection():
 
     path_cfg = dict(Any = (
         dict(All = ('ev : ev.GenSusyMSbottom[0] == 1000', 'ev : ev.GenSusyMNeutralino[0] == 300')),
+        dict(All = ('ev : ev.GenSusyMSbottom[0] == 800', 'ev : ev.GenSusyMNeutralino[0] == 50')),
+        dict(All = ('ev : ev.GenSusyMSbottom[0] == 375', 'ev : ev.GenSusyMNeutralino[0] == 300')),
     ))
 
     #
@@ -152,10 +154,10 @@ def configure_tables_after_1st_event_selection():
     tblcfg = [
         dict(keyAttrNames = ('smsmass1', 'smsmass2', 'ht40'),
              keyOutColumnNames = ('smsmass1', 'smsmass2', 'ht'),
-             binnings = (echo, echo, Combine(Round(10.0, 100), RoundLog(0.05, 100), 100))),
+             binnings = (echo, echo, Round(100, 100))),
         dict(keyAttrNames = ('smsmass1', 'smsmass2', 'mht40_pt'),
              keyOutColumnNames = ('smsmass1', 'smsmass2', 'mht'),
-             binnings = (echo, echo, Combine(Round(10.0, 100), RoundLog(0.05, 100), 100))),
+             binnings = (echo, echo, Round(100, 100))),
         dict(keyAttrNames = ('smsmass1', 'smsmass2', 'nJet40'),
              keyOutColumnNames = ('smsmass1', 'smsmass2', 'njet'),
              binnings = (echo, echo, echoNextPlusOne)),
@@ -243,10 +245,10 @@ def configure_tables_after_2nd_event_selection():
     tblcfg = [
         dict(keyAttrNames = ('smsmass1', 'smsmass2', 'ht40'),
              keyOutColumnNames = ('smsmass1', 'smsmass2', 'ht'),
-             binnings = (echo, echo, Combine(Round(10.0, 100), RoundLog(0.05, 100), 100))),
+             binnings = (echo, echo, Round(100, 100))),
         dict(keyAttrNames = ('smsmass1', 'smsmass2', 'mht40_pt'),
              keyOutColumnNames = ('smsmass1', 'smsmass2', 'mht'),
-             binnings = (echo, echo, Combine(Round(10.0, 100), RoundLog(0.05, 100), 100))),
+             binnings = (echo, echo, Round(100, 100))),
         dict(keyAttrNames = ('smsmass1', 'smsmass2', 'nJet40'),
              keyOutColumnNames = ('smsmass1', 'smsmass2', 'njet'),
              binnings = (echo, echo, echoNextPlusOne)),

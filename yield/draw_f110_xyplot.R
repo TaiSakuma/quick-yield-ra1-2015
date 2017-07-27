@@ -73,7 +73,9 @@ main <- function() {
   tbl <- tbl[c('component', 'smsmass1', 'smsmass2', 'selection', 'var', 'val', 'n')]
   call.write.table.aliened(tbl, 'd.txt')
 
-  tbl <- tbl[tbl$val <= 5000, ]
+  tbl$process <- str_c('T2bb', tbl$smsmass1, tbl$smsmass2, sep = '_')
+  tbl <- tbl[!(tbl$var == 'ht' & tbl$val > 2500), ]
+  tbl <- tbl[!(tbl$var == 'mht' & tbl$val > 1500), ]
   tbl <- tbl[tbl$n > 0, ]
 
   fig.id <- mk.fig.id()
@@ -132,7 +134,7 @@ draw_figure <- function(tbl)
 {
 
   golden_ratio <- 1.61803398875
-  xyplot(log10(n) ~ val | var,
+  xyplot(log10(n) ~ val | var*process,
          group = selection,
          tbl,
          xlab = NULL,
@@ -140,7 +142,7 @@ draw_figure <- function(tbl)
          between = list(x = 0.2, y = 0.2),
          scales = list(
            x = list(alternating = '1', relation = 'free'),
-           y = list(alternating = '1', relation = 'free')
+           y = list(alternating = '1', relation = 'same')
          ),
          panel = panel
          )
